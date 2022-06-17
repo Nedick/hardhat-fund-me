@@ -33,7 +33,7 @@ module.exports = {
         },
     },
     gasReporter: {
-        enabled: false, // set to false if you want to disable gas reporter
+        enabled: true, // set to false if you want to disable gas reporter
         outputFile: "gas-reporter.txt",
         noColors: true,
         currency: "USD",
