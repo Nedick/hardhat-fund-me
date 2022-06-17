@@ -32,14 +32,12 @@ module.exports = async ({ getNamedAccounts, deployments }) => {
         ethUsdPriceFeedAddress = networkConfig[chainId]["ethUsdPriceFeed"]
     }
 
-    // if contract doesn't exist, we deploy a minimal version of our local testing
-
-    // when going for a localhost or hardhat network we want to use a mock
     const args = [ethUsdPriceFeedAddress]
     const fundMe = await deploy("FundMe", {
         from: deployer,
         args: args, // put price feed address
         log: true,
+        waitConfirmations: network.config.blockConfirmations || 1,
     })
 
     if (
